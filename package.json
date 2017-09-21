@@ -2,13 +2,18 @@
   "name": "pitch-in-actions",
   "version": "0.0.0",
   "license": "MIT",
+  "engines": {
+    "node": "~6.11.1"
+  },
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "prettier": "prettier --single-quote --write 'src/**/*.ts'",
+    "fix": "tslint --fix 'src/**/*.ts' && npm run prettier"
   },
   "private": true,
   "dependencies": {
@@ -21,7 +26,10 @@
     "@angular/platform-browser": "^4.2.4",
     "@angular/platform-browser-dynamic": "^4.2.4",
     "@angular/router": "^4.2.4",
+    "@types/ramda": "^0.24.13",
     "core-js": "^2.4.1",
+    "moment": "^2.18.1",
+    "ramda": "^0.24.1",
     "rxjs": "^5.4.2",
     "zone.js": "^0.8.14"
   },
@@ -33,6 +41,7 @@
     "@types/jasminewd2": "~2.0.2",
     "@types/node": "~6.0.60",
     "codelyzer": "~3.1.1",
+    "factory.ts": "^0.2.2",
     "jasmine-core": "~2.6.2",
     "jasmine-spec-reporter": "~4.1.0",
     "karma": "~1.7.0",
@@ -41,9 +50,13 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
+    "node-sass": "^4.5.3",
+    "prettier": "^1.7.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
-    "typescript": "~2.3.3"
+    "tslint-config-airbnb": "^5.3.0",
+    "tslint-config-prettier": "^1.5.0",
+    "typescript": "^2.5.2"
   }
 }
