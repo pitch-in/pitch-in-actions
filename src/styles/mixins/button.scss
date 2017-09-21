@@ -1,0 +1,8 @@
+@import './typography';
+@import './colors';
+
+@mixin button($background, $color: $white) {
+  width: to-rem(28px);
+  background: $background;
+  color: $color;
+}

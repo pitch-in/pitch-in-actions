@@ -1,0 +1,19 @@
+@import 'variables/colors';
+@import 'mixins/form';
+@import 'mixins/button';
+
+.input {
+  @include input;
+}
+
+.button--primary {
+  @include button($blue);
+}
+
+.button--success {
+  @include button($green);
+}
+
+.button--secondary {
+  @include button($gray-5);
+}
