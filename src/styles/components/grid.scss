@@ -8,7 +8,7 @@
 }
 
 @mixin column($breakpoint, $size, $columns) {
-  @media only screen and (min-widh: $size) {
+  @media (min-width: $size) {
     .column--#{$breakpoint}-#{$columns} {
       width: ($columns / 12) * 100%;
       display: flex;

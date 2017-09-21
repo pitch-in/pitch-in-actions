@@ -1,5 +1,5 @@
 @import './typography';
-@import './colors';
+@import 'variables/colors';
 
 @mixin button($background, $color: $white) {
   width: to-rem(28px);

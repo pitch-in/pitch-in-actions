@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+
+import { MyGoalsStream } from './../streams/my-goals.stream';
 
 @Component({
   selector: 'pi-my-goals',
   templateUrl: 'my-goals.component.html'
 })
-export class MyGoalsComponent implements OnInit {
-  constructor() {}
-
-  ngOnInit() {}
+export class MyGoalsComponent {
+  constructor(public myGoalsStream: MyGoalsStream) {}
 }

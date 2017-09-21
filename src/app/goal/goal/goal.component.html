@@ -1,0 +1,4 @@
+<h3>{{goal.name}}</h3>
+<p>{{goal.deadline}}</p>
+<p>{{goal.status}}</p>
+<pi-action *ngFor="let action of goal.actions" [action]="action"></pi-action>
