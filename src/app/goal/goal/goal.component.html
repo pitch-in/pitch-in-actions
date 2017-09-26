@@ -1,4 +1,11 @@
-<h3>{{goal.name}}</h3>
-<p>{{goal.deadline}}</p>
-<p>{{goal.status}}</p>
-<pi-action *ngFor="let action of goal.actions" [action]="action"></pi-action>
+<form class="goal" [formGroup]="form">
+  <input formControlName="name" class="name" placeholder="Name" />
+  <label>
+    Deadline
+    <input formControlName="deadline" />
+  </label>
+  <input formControlName="status" />
+
+  <h4>Actions</h4>
+  <pi-action *ngFor="let actionForm of actionForms; let i=index" [actionForm]="actionForm" [goal]="goal"></pi-action>
+</form>

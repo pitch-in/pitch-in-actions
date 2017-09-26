@@ -1,0 +1,14 @@
+@import 'variables/colors';
+
+:host {
+  border-bottom: 1px solid $gray-5;
+}
+
+.goal {
+  display: flex;
+  flex-direction: column;
+}
+
+.name {
+  font-size: 1.5rem;
+}

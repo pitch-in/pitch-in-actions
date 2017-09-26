@@ -13,7 +13,7 @@ export class GoalsService {
   constructor(/* private httpClient: HttpClient */) {}
 
   myGoals(): Observable<Goal[]> {
-    return Observable.of(goalFactory.buildList(2));
+    return Observable.of(goalFactory.buildList(1));
   }
 
   updateGoal(goal: Goal): Observable<Goal> {
