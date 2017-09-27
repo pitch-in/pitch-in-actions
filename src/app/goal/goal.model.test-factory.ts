@@ -7,10 +7,7 @@ import { toString } from 'ramda';
 import { actionFactory } from 'app/action/action.model.test-factory';
 
 export const goalFactory = Factory.makeFactory<Goal>({
-  id: Factory.each(x => {
-    console.log('GOAL ID', x);
-    return toString(x);
-  }),
+  id: Factory.each(toString),
   name: 'Do a thing',
   notes: '',
   deadline: '2017-10-31',

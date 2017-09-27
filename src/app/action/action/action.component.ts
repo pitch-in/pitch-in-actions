@@ -55,5 +55,5 @@ function dymamicDate(
   goalDeadline: moment.Moment,
   dateType: string
 ): string {
-  return goalDeadline.subtract(form.value[dateType], 'days').format('m/d/YYYY');
+  return goalDeadline.subtract(form.value[dateType], 'days').format('M/D/YYYY');
 }

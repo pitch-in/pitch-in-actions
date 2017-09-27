@@ -1,3 +1,4 @@
+import { CloneGoalStream } from './../streams/clone-goal.stream';
 import { ActionFormBuilderService } from 'app/action/action-form-builder.service';
 import { Action } from 'app/action/action.model';
 import { Component, Input, OnInit } from '@angular/core';
@@ -24,7 +25,8 @@ export class GoalComponent implements OnInit {
   constructor(
     private goalFormBuilder: GoalFormBuilderService,
     private actionFormBuilder: ActionFormBuilderService,
-    private actionService: ActionService
+    private actionService: ActionService,
+    private cloneGoalStream: CloneGoalStream
   ) {}
 
   ngOnInit() {
@@ -33,6 +35,10 @@ export class GoalComponent implements OnInit {
 
   addAction() {
     this.actionService.add(this.goal.id).subscribe(this.renderNewAction);
+  }
+
+  cloneGoal() {
+    this.cloneGoalStream.$.next(this.goal.id);
   }
 
   removeAction(actionId: string, index: number) {

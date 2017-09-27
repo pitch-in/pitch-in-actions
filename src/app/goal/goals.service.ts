@@ -21,6 +21,9 @@ export class GoalsService {
 
   addGoal = (): Observable<Goal> => Observable.of(this.goalsRepo.post());
 
+  cloneGoal = (id: string): Observable<Goal> =>
+    Observable.of(this.goalsRepo.clone(id));
+
   removeGoal = (id: string): Observable<void> =>
     Observable.of(this.goalsRepo.delete(id));
 

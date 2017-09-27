@@ -15,6 +15,7 @@ import { GoalFormBuilderService } from './goal-form-builder.service';
 
 import { MyGoalsStream } from './streams/my-goals.stream';
 import { AddGoalStream } from './streams/add-goal.stream';
+import { CloneGoalStream } from './streams/clone-goal.stream';
 
 @NgModule({
   imports: [
@@ -31,6 +32,7 @@ import { AddGoalStream } from './streams/add-goal.stream';
     GoalsService,
     MyGoalsStream,
     AddGoalStream,
+    CloneGoalStream,
     GoalFormBuilderService
   ]
 })
