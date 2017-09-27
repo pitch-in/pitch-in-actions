@@ -9,6 +9,7 @@ export class ActionFormBuilderService {
 
   build(action?: Action): FormGroup {
     const form = this.fb.group({
+      id: [''],
       name: [''],
       notes: [''],
       startDaysBefore: [''],

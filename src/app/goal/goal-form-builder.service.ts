@@ -17,6 +17,7 @@ export class GoalFormBuilderService {
 
   build(goal?: Goal): FormGroup {
     const form = this.fb.group({
+      id: [''],
       name: [''],
       notes: [''],
       deadline: [''],

@@ -7,5 +7,10 @@
   <input formControlName="status" />
 
   <h4>Actions</h4>
-  <pi-action *ngFor="let actionForm of actionForms; let i=index" [actionForm]="actionForm" [goal]="goal"></pi-action>
+  <div class="action" *ngFor="let actionForm of actionForms; let i=index">
+    <button type="button" (click)="removeAction(actionForm.value.id, i)">X</button>
+    <pi-action [actionForm]="actionForm" [goal]="goal"></pi-action>
+  </div>
+
+  <button type="button" (click)="addAction()">+ Add Action</button>
 </form>

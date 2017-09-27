@@ -1,4 +1,5 @@
-import { Component, Input, OnChanges } from '@angular/core';
+import { ActionService } from './../action.service';
+import { Component, Input, OnInit } from '@angular/core';
 import { FormGroup } from '@angular/forms';
 
 import * as moment from 'moment';
@@ -13,16 +14,23 @@ import { ActionFormBuilderService } from './../action-form-builder.service';
   templateUrl: 'action.component.html',
   styleUrls: ['action.component.scss']
 })
-export class ActionComponent implements OnChanges {
+export class ActionComponent implements OnInit {
   @Input() actionForm: FormGroup;
   @Input() goal: Goal;
 
   form: FormGroup;
 
-  constructor(private actionFormBuilder: ActionFormBuilderService) {}
+  constructor(
+    private actionFormBuilder: ActionFormBuilderService,
+    private actionService: ActionService
+  ) {}
 
-  ngOnChanges() {
+  ngOnInit() {
     this.form = this.actionFormBuilder.build(this.action);
+
+    this.form.valueChanges.subscribe((action: Action) =>
+      this.actionService.update(this.goal.id, action)
+    );
   }
 
   get action(): Action {
@@ -47,6 +55,5 @@ function dymamicDate(
   goalDeadline: moment.Moment,
   dateType: string
 ): string {
-  console.log(form.value);
   return goalDeadline.subtract(form.value[dateType], 'days').format('m/d/YYYY');
 }

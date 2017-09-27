@@ -12,3 +12,12 @@
 .name {
   font-size: 1.5rem;
 }
+
+.action {
+  display: flex;
+  flex-direction: row;
+}
+
+pi-action {
+  flex-grow: 1;
+}
