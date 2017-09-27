@@ -14,23 +14,16 @@ export class GoalsService {
     private goalsRepo: GoalsRepo /* private httpClient: HttpClient */
   ) {}
 
-  myGoals(): Observable<Goal[]> {
-    return Observable.of(this.goalsRepo.index());
-  }
+  myGoals = (): Observable<Goal[]> => Observable.of(this.goalsRepo.index());
 
-  getGoal(id: string): Observable<Goal> {
-    return Observable.of(this.goalsRepo.get(id));
-  }
+  getGoal = (id: string): Observable<Goal> =>
+    Observable.of(this.goalsRepo.get(id));
 
-  addGoal(): Observable<Goal> {
-    return Observable.of(this.goalsRepo.post());
-  }
+  addGoal = (): Observable<Goal> => Observable.of(this.goalsRepo.post());
 
-  removeGoal(id: string): Observable<void> {
-    return Observable.of(this.goalsRepo.delete(id));
-  }
+  removeGoal = (id: string): Observable<void> =>
+    Observable.of(this.goalsRepo.delete(id));
 
-  updateGoal(goal: Goal): Observable<Goal> {
-    return Observable.of(this.goalsRepo.put(goal));
-  }
+  updateGoal = (goal: Goal): Observable<Goal> =>
+    Observable.of(this.goalsRepo.put(goal));
 }

@@ -14,6 +14,7 @@ import { GoalsService } from './goals.service';
 import { GoalFormBuilderService } from './goal-form-builder.service';
 
 import { MyGoalsStream } from './streams/my-goals.stream';
+import { AddGoalStream } from './streams/add-goal.stream';
 
 @NgModule({
   imports: [
@@ -26,6 +27,11 @@ import { MyGoalsStream } from './streams/my-goals.stream';
   ],
   exports: [],
   declarations: [MyGoalsComponent, GoalComponent],
-  providers: [GoalsService, MyGoalsStream, GoalFormBuilderService]
+  providers: [
+    GoalsService,
+    MyGoalsStream,
+    AddGoalStream,
+    GoalFormBuilderService
+  ]
 })
 export class GoalModule {}

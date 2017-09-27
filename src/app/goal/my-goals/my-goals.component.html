@@ -1,11 +1,9 @@
 <h1>My Goals</h1>
-<div class="row">
-  <div class="column--mobile-12 column--tablet-8">
-    Goals List
-    <pi-goal *ngFor="let goal of (myGoalsStream.$ | async)" [goal]="goal"></pi-goal>
-  </div>
+<div>
+  Goals List
+  <pi-goal *ngFor="let goal of (myGoalsStream.$ | async)" [goal]="goal"></pi-goal>
 
-  <div class="column--mobile-12 column--tablet-4">
-    Goal Detail
-  </div>
+  <button type="button" (click)="addGoal()">
+    + Add Goal
+  </button>
 </div>
