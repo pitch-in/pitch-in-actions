@@ -1,10 +1,21 @@
 @import 'variables/colors';
 
-.navbar {
-  height: 5rem;
+.top-nav {
+  height: 3rem;
+  background: $blue;
+  color: $white;
+  text-transform: uppercase;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.main-nav {
+  height: 4rem;
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   padding: 0 1rem;
   margin-bottom: 1rem;
