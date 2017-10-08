@@ -11,8 +11,6 @@ import { ReposModule } from 'app/repos/repos.module';
 
 import { GoalsService } from './goals.service';
 
-import { GoalFormBuilderService } from './goal/goal-form-builder.service';
-
 import { MyGoalsStream } from './streams/my-goals.stream';
 import { AddGoalStream } from './streams/add-goal.stream';
 import { CloneGoalStream } from './streams/clone-goal.stream';
@@ -28,12 +26,6 @@ import { CloneGoalStream } from './streams/clone-goal.stream';
   ],
   exports: [],
   declarations: [MyGoalsComponent, GoalComponent],
-  providers: [
-    GoalsService,
-    MyGoalsStream,
-    AddGoalStream,
-    CloneGoalStream,
-    GoalFormBuilderService
-  ]
+  providers: [GoalsService, MyGoalsStream, AddGoalStream, CloneGoalStream]
 })
 export class GoalModule {}

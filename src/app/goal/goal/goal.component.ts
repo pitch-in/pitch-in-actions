@@ -1,14 +1,14 @@
-import { CloneGoalStream } from './../streams/clone-goal.stream';
-import { ActionFormBuilderService } from 'app/action/action-form-builder.service';
-import { Action } from 'app/action/action.model';
 import { Component, Input, OnInit } from '@angular/core';
-import { FormGroup } from '@angular/forms';
+import { FormGroup, FormBuilder } from '@angular/forms';
 
+import { buildForm } from 'app/shared/form.helpers';
+
+import { Action } from 'app/action/action.model';
+import { actionSchema } from 'app/action/action/action.component.model';
 import { Goal } from '../goal.model';
-import {
-  GoalFormBuilderService,
-  getActionArray
-} from './goal-form-builder.service';
+import { goalSchema, actionArray } from './goal-form.component.model';
+
+import { CloneGoalStream } from '../streams/clone-goal.stream';
 
 import { ActionService } from 'app/action/action.service';
 
@@ -19,18 +19,16 @@ import { ActionService } from 'app/action/action.service';
 })
 export class GoalComponent implements OnInit {
   @Input() goal: Goal;
-
   form: FormGroup;
 
   constructor(
-    private goalFormBuilder: GoalFormBuilderService,
-    private actionFormBuilder: ActionFormBuilderService,
+    private fb: FormBuilder,
     private actionService: ActionService,
     private cloneGoalStream: CloneGoalStream
   ) {}
 
   ngOnInit() {
-    this.form = this.goalFormBuilder.build(this.goal);
+    this.form = buildForm(this.fb, goalSchema, this.goal);
   }
 
   addAction() {
@@ -48,7 +46,7 @@ export class GoalComponent implements OnInit {
   }
 
   get actionArray() {
-    return getActionArray(this.form);
+    return actionArray(this.form);
   }
 
   get actionForms() {
@@ -56,7 +54,7 @@ export class GoalComponent implements OnInit {
   }
 
   private renderNewAction = (action: Action): void => {
-    const actionForm: FormGroup = this.actionFormBuilder.build(action);
+    const actionForm: FormGroup = buildForm(this.fb, actionSchema, action);
 
     this.actionArray.push(actionForm);
   };

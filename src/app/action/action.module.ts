@@ -3,7 +3,6 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { ActionComponent } from './action/action.component';
 
-import { ActionFormBuilderService } from './action-form-builder.service';
 import { ActionService } from './action.service';
 import { ReposModule } from 'app/repos/repos.module';
 
@@ -11,6 +10,6 @@ import { ReposModule } from 'app/repos/repos.module';
   imports: [FormsModule, ReactiveFormsModule, ReposModule],
   exports: [ActionComponent],
   declarations: [ActionComponent],
-  providers: [ActionFormBuilderService, ActionService]
+  providers: [ActionService]
 })
 export class ActionModule {}
