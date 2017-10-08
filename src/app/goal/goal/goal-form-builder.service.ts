@@ -1,12 +1,31 @@
 import { Injectable } from '@angular/core';
-import { FormBuilder, FormGroup, FormArray } from '@angular/forms';
+import { FormBuilder, FormGroup } from '@angular/forms';
 
 import { isEmpty } from 'ramda';
 
-import { ActionFormBuilderService } from 'app/action/action-form-builder.service';
+import {
+  ActionFormBuilderService,
+  actionSchema
+} from 'app/action/action-form-builder.service';
 
 import { Action } from 'app/action/action.model';
-import { Goal } from './goal.model';
+import { Goal } from '../goal.model';
+
+import { formArray, FormSchema } from 'app/shared/form.helpers';
+
+const goalSchema: FormSchema<Goal> = {
+  id: [''],
+  name: [''],
+  notes: [''],
+  deadline: [''],
+  status: [''],
+  actions: {
+    type: 'array',
+    schema: actionSchema
+  }
+};
+
+console.log(goalSchema);
 
 @Injectable()
 export class GoalFormBuilderService {
@@ -44,5 +63,4 @@ export class GoalFormBuilderService {
   }
 }
 
-export const getActionArray = (form: FormGroup): FormArray =>
-  form.get('actions') as FormArray;
+export const getActionArray = formArray('actions');

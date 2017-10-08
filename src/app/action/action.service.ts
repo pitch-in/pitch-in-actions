@@ -14,6 +14,8 @@ export class ActionService {
     private actionRepo: ActionRepo /* private httpClient: HttpClient */
   ) {}
 
+  index = (): Observable<Action[]> => Observable.of(this.actionRepo.index());
+
   add(goalId: string): Observable<Action> {
     return Observable.of(this.actionRepo.post(goalId));
   }

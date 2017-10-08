@@ -198,9 +198,9 @@
   version "0.0.32"
   resolved "https://registry.yarnpkg.com/@types/q/-/q-0.0.32.tgz#bd284e57c84f1325da702babfc82a5328190c0c5"
 
-"@types/ramda@^0.24.13":
-  version "0.24.13"
-  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.24.13.tgz#86f09c562d8afddc1875c9073f27ae6a5785d790"
+"@types/ramda@^0.24.16":
+  version "0.24.16"
+  resolved "https://registry.yarnpkg.com/@types/ramda/-/ramda-0.24.16.tgz#e3849362ed1ab89923c10e8755db84135275a1ac"
 
 "@types/selenium-webdriver@^2.53.35", "@types/selenium-webdriver@~2.53.39":
   version "2.53.42"

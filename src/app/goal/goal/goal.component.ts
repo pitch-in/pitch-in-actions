@@ -8,7 +8,7 @@ import { Goal } from '../goal.model';
 import {
   GoalFormBuilderService,
   getActionArray
-} from '../goal-form-builder.service';
+} from './goal-form-builder.service';
 
 import { ActionService } from 'app/action/action.service';
 

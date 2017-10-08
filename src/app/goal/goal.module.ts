@@ -11,7 +11,7 @@ import { ReposModule } from 'app/repos/repos.module';
 
 import { GoalsService } from './goals.service';
 
-import { GoalFormBuilderService } from './goal-form-builder.service';
+import { GoalFormBuilderService } from './goal/goal-form-builder.service';
 
 import { MyGoalsStream } from './streams/my-goals.stream';
 import { AddGoalStream } from './streams/add-goal.stream';
