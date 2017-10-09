@@ -1,4 +1,4 @@
-import * as Factory from 'factory.ts';
+import * as Factory from 'app/shared/factory.helpers';
 
 import { Action } from 'app/action/action.model';
 

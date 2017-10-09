@@ -1,4 +1,4 @@
-import * as Factory from 'factory.ts';
+import * as Factory from 'app/shared/factory.helpers';
 
 import { Goal } from './goal.model';
 
