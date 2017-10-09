@@ -2,7 +2,7 @@
 @import 'variables/colors';
 
 @mixin button($background, $color: $white) {
-  width: to-rem(28px);
   background: $background;
   color: $color;
+  padding: 5px;
 }

@@ -23,7 +23,7 @@ export type FieldSchema = any[];
 
 export type ControlSchema<T> = ArraySchema<any> | GroupSchema<T> | FieldSchema;
 
-export type FormSchema<T> = { [U in keyof T]: ControlSchema<T[U]> };
+export type FormSchema<T> = { [U in keyof Partial<T>]: ControlSchema<T[U]> };
 
 export const formArray = curry(
   (arrayName: string, form: FormGroup): FormArray =>

@@ -1,17 +1,3 @@
-<form class="goal" [formGroup]="form">
-  <input formControlName="name" class="name" placeholder="Name" />
-  <button type="button" (click)="cloneGoal()">+ Clone Goal</button>
-  <label>
-    Deadline
-    <input formControlName="deadline" />
-  </label>
-  <input formControlName="status" />
+<pi-edit-goal *ngIf="editing" [goal]="goal"></pi-edit-goal>
 
-  <h4>Actions</h4>
-  <div class="action" *ngFor="let actionForm of actionForms; let i=index">
-    <button type="button" (click)="removeAction(actionForm.value.id, i)">X</button>
-    <pi-action [form]="actionForm" [goal]="goal"></pi-action>
-  </div>
-
-  <button type="button" (click)="addAction()">+ Add Action</button>
-</form>
+<pi-show-goal *ngIf="!editing" [goal]="goal"></pi-show-goal>

@@ -1,0 +1,16 @@
+<form class="goal" [formGroup]="form">
+  <input formControlName="name" class="name" placeholder="Name" />
+  <button type="button" (click)="cloneGoal()">+ Clone Goal</button>
+  <label>
+    Deadline
+    <input formControlName="deadline" />
+  </label>
+  <input formControlName="status" />
+
+  <div class="action" *ngFor="let action of goal.actions">
+    <button type="button" (click)="removeAction(action)">X</button>
+    <pi-action [action]="action" [parent]="goal"></pi-action>
+  </div>
+
+  <button type="button" (click)="addAction()">+ Add Action</button>
+</form>

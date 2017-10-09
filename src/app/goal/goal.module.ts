@@ -7,6 +7,8 @@ import { ActionModule } from 'app/action/action.module';
 
 import { MyGoalsComponent } from './my-goals/my-goals.component';
 import { GoalComponent } from './goal/goal.component';
+import { EditGoalComponent } from './edit-goal/edit-goal.component';
+import { ShowGoalComponent } from './show-goal/show-goal.component';
 import { ReposModule } from 'app/repos/repos.module';
 
 import { GoalsService } from './goals.service';
@@ -25,7 +27,12 @@ import { CloneGoalStream } from './streams/clone-goal.stream';
     ReposModule
   ],
   exports: [],
-  declarations: [MyGoalsComponent, GoalComponent],
+  declarations: [
+    MyGoalsComponent,
+    GoalComponent,
+    EditGoalComponent,
+    ShowGoalComponent
+  ],
   providers: [GoalsService, MyGoalsStream, AddGoalStream, CloneGoalStream]
 })
 export class GoalModule {}

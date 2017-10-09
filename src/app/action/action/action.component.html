@@ -1,14 +1,3 @@
-<form class="action" [formGroup]="form">
-  <input formControlName="name" placeholder="Name" />
-  <label>
-    Start Days Before:
-    <input formControlName="startDaysBefore" />
-    {{ startByDate }}
-  </label>
-  <label>
-    Finish Days Before:
-    <input formControlName="finishDaysBefore" />
-    {{ finishByDate }}
-  </label>
-  <input formControlName="status" />
-</form>
+<pi-edit-action *ngIf="editing" [parent]="parent" [action]="action" (close)="editing = false"></pi-edit-action>
+
+<pi-show-action *ngIf="!editing" [parent]="parent" [action]="action" (edit)="editing = true"></pi-show-action>

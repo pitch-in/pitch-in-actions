@@ -1,0 +1,20 @@
+<div class="main-row">
+  <button type="button" class="edit-button">
+  </button>
+
+  <div class="description">
+    <span>
+      {{goal.name}}
+    </span>
+    by
+    <span>
+      {{goal.deadline | date : 'MMM dd' }}
+    </span>
+  </div>
+</div>
+
+<div class="actions">
+  <pi-action *ngFor="let action of goal.actions" [action]="action" [parent]="goal"></pi-action>
+</div>
+
+<hr>

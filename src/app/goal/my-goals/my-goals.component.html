@@ -1,6 +1,6 @@
 <h1>My Goals</h1>
+<br/>
 <div>
-  Goals List
   <pi-goal *ngFor="let goal of (myGoalsStream.$ | async)" [goal]="goal"></pi-goal>
 
   <button type="button" (click)="addGoal()">

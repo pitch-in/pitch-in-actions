@@ -1,0 +1,46 @@
+@import 'variables/colors';
+@import 'mixins/expansion-button';
+
+.main-row {
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
+
+.description {
+  flex-grow: 1;
+}
+
+.expand-button--expanded {
+  @include expansion-button('^', $black, $white);
+}
+
+.expand-button--closed {
+  @include expansion-button('V', $black, $white);
+}
+
+.edit-button {
+  @include expansion-button('i', $blue, $white);
+}
+
+.clone-button {
+  @include expansion-button('C', $black, $white);
+}
+
+.finish-button {
+  @include expansion-button('Y', $green, $white);
+}
+
+.remove-button {
+  @include expansion-button('X', $red, $white);
+}
+
+.commands {
+  margin-top: 0.5rem;
+  display: flex;
+  flex-direction: row;
+}
+
+.spacer {
+  flex-grow: 1;
+}
