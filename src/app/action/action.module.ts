@@ -6,14 +6,20 @@ import { ReposModule } from 'app/repos/repos.module';
 
 import { ActionComponent } from './action/action.component';
 import { EditActionComponent } from './edit-action/edit-action.component';
+import { MyActionsComponent } from './my-actions/my-actions.component';
 import { ShowActionComponent } from './show-action/show-action.component';
 
 import { ActionService } from './action.service';
 
 @NgModule({
   imports: [FormsModule, BrowserModule, ReactiveFormsModule, ReposModule],
-  exports: [ActionComponent],
-  declarations: [ActionComponent, EditActionComponent, ShowActionComponent],
+  exports: [MyActionsComponent, ActionComponent],
+  declarations: [
+    MyActionsComponent,
+    ActionComponent,
+    EditActionComponent,
+    ShowActionComponent
+  ],
   providers: [ActionService]
 })
 export class ActionModule {}

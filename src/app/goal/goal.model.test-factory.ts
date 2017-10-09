@@ -16,7 +16,7 @@ export const goalFactory = Factory.makeFactory<Goal>({
 });
 
 export const emptyGoalFactory = Factory.makeFactory<Goal>({
-  id: Factory.each(x => toString(x + 2)),
+  id: Factory.each((x: number) => toString(x + 2)),
   name: '',
   notes: '',
   deadline: '',

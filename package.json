@@ -3,21 +3,25 @@
   "version": "0.0.0",
   "license": "MIT",
   "engines": {
-    "node": "~6.11.1"
+    "node": "6.11.3",
+    "npm": "3.10.10"
   },
   "scripts": {
     "ng": "ng",
-    "start": "ng serve",
+    "start": "http-server dist/",
+    "serve": "ng serve",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prettier": "prettier --single-quote --write 'src/**/*.ts'",
-    "fix": "tslint --fix 'src/**/*.ts' && npm run prettier"
+    "fix": "tslint --fix 'src/**/*.ts' && npm run prettier",
+    "postinstall": "ng build --aot"
   },
   "private": true,
   "dependencies": {
     "@angular/animations": "^4.4.3",
+    "@angular/cli": "1.4.2",
     "@angular/common": "^4.4.3",
     "@angular/compiler": "^4.4.3",
     "@angular/core": "^4.4.3",
@@ -28,14 +32,17 @@
     "@angular/router": "^4.4.3",
     "@types/ramda": "^0.24.16",
     "core-js": "^2.4.1",
+    "http-server": "^0.10.0",
     "moment": "^2.18.1",
     "ramda": "^0.24.1",
     "rxjs": "^5.4.2",
-    "zone.js": "^0.8.14"
+    "zone.js": "^0.8.14",
+
+    "@angular/compiler-cli": "^4.4.3",
+    "typescript": "^2.5.2",
+    "node-sass": "^4.5.3"
   },
   "devDependencies": {
-    "@angular/cli": "1.4.2",
-    "@angular/compiler-cli": "^4.4.3",
     "@angular/language-service": "^4.4.3",
     "@types/jasmine": "~2.5.53",
     "@types/jasminewd2": "~2.0.2",
@@ -50,13 +57,11 @@
     "karma-coverage-istanbul-reporter": "^1.2.1",
     "karma-jasmine": "~1.1.0",
     "karma-jasmine-html-reporter": "^0.2.2",
-    "node-sass": "^4.5.3",
     "prettier": "^1.7.0",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
     "tslint": "~5.3.2",
     "tslint-config-airbnb": "^5.3.0",
-    "tslint-config-prettier": "^1.5.0",
-    "typescript": "^2.5.2"
+    "tslint-config-prettier": "^1.5.0"
   }
 }
