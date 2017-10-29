@@ -1,11 +1,5 @@
-import {
-  Component,
-  Input,
-  OnInit,
-  OnChanges,
-  EventEmitter,
-  Output
-} from '@angular/core';
+import { UpdateActionAction } from './../streams/update-action.action';
+import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import * as moment from 'moment';
@@ -16,14 +10,12 @@ import { Action, dymamicDate } from '../action.model';
 import { Goal } from 'app/goal/goal.model';
 import { actionSchema } from './edit-action.component.model';
 
-import { ActionService } from '../action.service';
-
 @Component({
   selector: 'pi-edit-action',
   templateUrl: 'edit-action.component.html',
   styleUrls: ['edit-action.component.scss']
 })
-export class EditActionComponent implements OnInit, OnChanges {
+export class EditActionComponent implements OnInit {
   @Input()
   set action(action: Action) {
     console.log('SET');
@@ -37,19 +29,16 @@ export class EditActionComponent implements OnInit, OnChanges {
   @Output() close = new EventEmitter();
   form: FormGroup;
 
-  constructor(private fb: FormBuilder, private actionService: ActionService) {}
+  constructor(
+    private fb: FormBuilder,
+    private updateActionAction: UpdateActionAction
+  ) {}
 
   ngOnInit() {}
 
-  ngOnChanges(value: any) {
-    console.log(value);
-  }
-
   submit() {
-    console.log(this.parent, this.form.value);
-    this.actionService
-      .update(this.parent.id, this.form.value)
-      .subscribe(this.close);
+    console.log(this.parent, this.action);
+    this.updateActionAction.$.next([this.parent.id, this.action]);
   }
 
   get goalDeadline(): moment.Moment {

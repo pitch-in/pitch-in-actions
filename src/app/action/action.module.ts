@@ -1,3 +1,5 @@
+import { UpdateActionStream } from './streams/update-action.stream';
+import { UpdateActionAction } from './streams/update-action.action';
 import { NgModule } from '@angular/core';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,6 +22,6 @@ import { ActionService } from './action.service';
     EditActionComponent,
     ShowActionComponent
   ],
-  providers: [ActionService]
+  providers: [ActionService, UpdateActionAction, UpdateActionStream]
 })
 export class ActionModule {}
