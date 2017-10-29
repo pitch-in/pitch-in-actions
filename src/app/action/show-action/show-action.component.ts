@@ -2,7 +2,10 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { Action, dymamicDate, ActionParent } from '../action.model';
+import { ActionParent, Action, dymamicDate } from '../action.model';
+
+type InputActionParent = ActionParent;
+type InputAction = Action;
 
 @Component({
   selector: 'pi-show-action',
@@ -10,8 +13,8 @@ import { Action, dymamicDate, ActionParent } from '../action.model';
   styleUrls: ['show-action.component.scss']
 })
 export class ShowActionComponent {
-  @Input() parent: ActionParent;
-  @Input() action: Action;
+  @Input() parent: InputActionParent;
+  @Input() action: InputAction;
   @Output() remove = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() finish = new EventEmitter();

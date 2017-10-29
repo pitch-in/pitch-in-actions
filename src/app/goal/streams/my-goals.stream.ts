@@ -23,6 +23,7 @@ export class MyGoalsStream implements StreamWrapper<Observable<Goal[]>> {
   ) {
     this.$ = goalsService
       .myGoals()
+      // TODO: Handle updates in here
       .concat(
         cloneGoalStream.$
           .flatMap(goalsService.cloneGoal)

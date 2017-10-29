@@ -51,6 +51,8 @@ export class ActionRepo {
     goal = assoc('actions', actions, goal);
     this.goalRepo.put(goal);
 
+    console.log('action PUT', goal);
+
     return action;
   }
 

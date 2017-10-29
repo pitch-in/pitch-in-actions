@@ -1,4 +1,11 @@
-import { Component, Input, OnInit, EventEmitter, Output } from '@angular/core';
+import {
+  Component,
+  Input,
+  OnInit,
+  OnChanges,
+  EventEmitter,
+  Output
+} from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 
 import * as moment from 'moment';
@@ -16,22 +23,32 @@ import { ActionService } from '../action.service';
   templateUrl: 'edit-action.component.html',
   styleUrls: ['edit-action.component.scss']
 })
-export class EditActionComponent implements OnInit {
-  @Input() action: Action;
+export class EditActionComponent implements OnInit, OnChanges {
+  @Input()
+  set action(action: Action) {
+    console.log('SET');
+    this.form = buildForm(this.fb, actionSchema, action);
+  }
+  get action(): Action {
+    return this.form.value;
+  }
+
   @Input() parent: Goal;
   @Output() close = new EventEmitter();
   form: FormGroup;
 
   constructor(private fb: FormBuilder, private actionService: ActionService) {}
 
-  ngOnInit() {
-    this.form = buildForm(this.fb, actionSchema, this.action);
+  ngOnInit() {}
+
+  ngOnChanges(value: any) {
+    console.log(value);
   }
 
   submit() {
-    console.log(this.parent);
+    console.log(this.parent, this.form.value);
     this.actionService
-      .update(this.parent.id, this.action)
+      .update(this.parent.id, this.form.value)
       .subscribe(this.close);
   }
 
