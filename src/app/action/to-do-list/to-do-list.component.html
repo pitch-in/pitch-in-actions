@@ -1,0 +1,3 @@
+<h1>To-Do List</h1>
+
+<pi-action *ngFor="let action of (toDoListStream.$ | async)" [action]="action"></pi-action>

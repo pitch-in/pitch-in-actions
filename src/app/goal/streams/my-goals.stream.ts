@@ -1,4 +1,3 @@
-import { UpdateGoalStream } from './update-goal.stream';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,7 +11,9 @@ import { StreamWrapper } from 'app/shared/stream.helpers';
 import { Goal } from '../goal.model';
 
 import { GoalsService } from './../goals.service';
+
 import { UpdateActionStream } from 'app/action/streams/update-action.stream';
+import { UpdateGoalStream } from './update-goal.stream';
 
 @Injectable()
 export class MyGoalsStream implements StreamWrapper<Observable<Goal[]>> {

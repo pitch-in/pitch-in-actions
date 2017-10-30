@@ -40,8 +40,8 @@ export class ActionRepo {
     return action;
   }
 
-  put(goalId: string, action: Action): Action {
-    let goal = this.goalRepo.get(goalId);
+  put(action: Action): Action {
+    let goal = this.goalRepo.getByActionId(action.id);
     let actions = goal.actions;
 
     const actionIndex = findIndex(pipe(prop('id'), equals(action.id)))(actions);
@@ -56,11 +56,11 @@ export class ActionRepo {
     return action;
   }
 
-  delete(goalId: string, actionId: string): void {
-    let goal = this.goalRepo.get(goalId);
+  delete(action: Action): void {
+    let goal = this.goalRepo.getByActionId(action.id);
     let actions = goal.actions;
 
-    const actionIndex = findIndex(pipe(prop('id'), equals(actionId)))(actions);
+    const actionIndex = findIndex(pipe(prop('id'), equals(action.id)))(actions);
 
     actions = remove(actionIndex, 1, actions);
 

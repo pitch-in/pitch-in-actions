@@ -20,11 +20,9 @@ export class ActionService {
   add = (goalId: string): Observable<Action> =>
     Observable.of(this.actionRepo.post(goalId));
 
-  remove = (goalId: string, action: Action): Observable<Action> =>
-    Observable.of(this.actionRepo.delete(goalId, action.id)).map(
-      always(action)
-    );
+  remove = (action: Action): Observable<Action> =>
+    Observable.of(this.actionRepo.delete(action)).map(always(action));
 
-  update = (goalId: string, action: Action): Observable<Action> =>
-    Observable.of(this.actionRepo.put(goalId, action));
+  update = (action: Action): Observable<Action> =>
+    Observable.of(this.actionRepo.put(action));
 }

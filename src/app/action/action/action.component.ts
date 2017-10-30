@@ -24,10 +24,10 @@ export class ActionComponent {
   ) {}
 
   updateAction(action: Action) {
-    this.updateActionAction.$.next([this.parent.id, action]);
+    this.updateActionAction.$.next(action);
   }
 
   removeAction(action: Action) {
-    this.removeActionAction.$.next([this.parent.id, action]);
+    this.removeActionAction.$.next(action);
   }
 }

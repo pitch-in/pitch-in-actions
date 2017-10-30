@@ -2,4 +2,4 @@ import { SubjectWrapper } from 'app/shared/stream.helpers';
 
 import { Action } from '../action.model';
 
-export class UpdateActionAction extends SubjectWrapper<[string, Action]> {}
+export class UpdateActionAction extends SubjectWrapper<Action> {}

@@ -23,14 +23,12 @@ export class UpdateActionStream implements StreamWrapper<Observable<Action>> {
     addActionAction: AddActionAction,
     actionService: ActionService
   ) {
-    const updateStream$ = updateActionAction.$.flatMap(
-      ([parentId, action]: [string, Action]) =>
-        actionService.update(parentId, action)
+    const updateStream$ = updateActionAction.$.flatMap((action: Action) =>
+      actionService.update(action)
     );
 
-    const removeStream$ = removeActionAction.$.flatMap(
-      ([parentId, action]: [string, Action]) =>
-        actionService.remove(parentId, action)
+    const removeStream$ = removeActionAction.$.flatMap((action: Action) =>
+      actionService.remove(action)
     );
 
     const addStream$ = addActionAction.$.flatMap(actionService.add);

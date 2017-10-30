@@ -1,3 +1,5 @@
+import { ToDoListComponent } from './to-do-list/to-do-list.component';
+import { ToDoListStream } from './streams/to-do-list.stream';
 import { AddActionAction } from './streams/add-action.action';
 import { RemoveActionAction } from './streams/remove-action.action';
 import { UpdateActionStream } from './streams/update-action.stream';
@@ -10,16 +12,15 @@ import { ReposModule } from 'app/repos/repos.module';
 
 import { ActionComponent } from './action/action.component';
 import { EditActionComponent } from './edit-action/edit-action.component';
-import { MyActionsComponent } from './my-actions/my-actions.component';
 import { ShowActionComponent } from './show-action/show-action.component';
 
 import { ActionService } from './action.service';
 
 @NgModule({
   imports: [FormsModule, BrowserModule, ReactiveFormsModule, ReposModule],
-  exports: [MyActionsComponent, ActionComponent],
+  exports: [ToDoListComponent, ActionComponent],
   declarations: [
-    MyActionsComponent,
+    ToDoListComponent,
     ActionComponent,
     EditActionComponent,
     ShowActionComponent
@@ -29,7 +30,8 @@ import { ActionService } from './action.service';
     UpdateActionAction,
     AddActionAction,
     RemoveActionAction,
-    UpdateActionStream
+    UpdateActionStream,
+    ToDoListStream
   ]
 })
 export class ActionModule {}

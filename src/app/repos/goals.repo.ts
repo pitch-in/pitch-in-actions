@@ -19,7 +19,8 @@ import {
   sort,
   inc,
   fromPairs,
-  toString
+  toString,
+  find
 } from 'ramda';
 
 interface GoalHash {
@@ -42,6 +43,10 @@ export class GoalsRepo {
 
   get(id: string): Goal {
     return this.goals[id];
+  }
+
+  getByActionId(id: string): Goal {
+    return findByActionId(id, this.goals);
   }
 
   post(): Goal {
@@ -83,3 +88,9 @@ const nextId: (a: GoalHash) => string = pipe(
   inc,
   toString
 );
+
+const hasActionId = (actionId: string) => (goal: Goal): boolean =>
+  Boolean(goal.actions.find(action => action.id === actionId));
+
+const findByActionId = (actionId: string, goal: GoalHash): Goal =>
+  pipe(values, find(hasActionId(actionId)))(goal);

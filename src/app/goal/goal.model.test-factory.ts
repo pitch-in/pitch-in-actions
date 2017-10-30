@@ -6,8 +6,14 @@ import { toString } from 'ramda';
 
 import { actionFactory } from 'app/action/action.model.test-factory';
 
+let id = 1;
+
+function nextId(): string {
+  return toString(id++);
+}
+
 export const goalFactory = Factory.makeFactory<Goal>({
-  id: Factory.each(toString),
+  id: Factory.each(nextId),
   name: 'Do a thing',
   notes: '',
   deadline: '2017-10-31',
@@ -16,7 +22,7 @@ export const goalFactory = Factory.makeFactory<Goal>({
 });
 
 export const emptyGoalFactory = Factory.makeFactory<Goal>({
-  id: Factory.each((x: number) => toString(x + 2)),
+  id: Factory.each(nextId),
   name: '',
   notes: '',
   deadline: '',
