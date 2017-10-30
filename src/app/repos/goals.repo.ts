@@ -68,11 +68,9 @@ export class GoalsRepo {
 
   clone(id: string): Goal {
     let goal = this.get(id);
-    console.log('ENXT', nextId(this.goals));
     goal = assoc('id', nextId(this.goals), goal);
 
     this.goals = assoc(goal.id, goal, this.goals);
-    console.log(this.goals);
 
     return goal;
   }

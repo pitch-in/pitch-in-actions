@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 import { Goal } from 'app/goal/goal.model';
-import { Action } from 'app/action/action.model';
+import { Action, ActionWithContext } from 'app/action/action.model';
 
 import { emptyActionFactory } from 'app/action/action.model.test-factory';
 
@@ -24,6 +24,10 @@ export class ActionRepo {
 
   index(): Action[] {
     return allActions(this.goalRepo.index());
+  }
+
+  toDoList(): ActionWithContext[] {
+    return toDoList(this.goalRepo.index());
   }
 
   post(goalId: string): Action {
@@ -70,3 +74,7 @@ export class ActionRepo {
 }
 
 const allActions: (a: Goal[]) => Action[] = chain(prop('actions'));
+
+const toDoList: (a: Goal[]) => ActionWithContext[] = chain(goal =>
+  goal.actions.map(action => ({ action, goal }))
+);

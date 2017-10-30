@@ -12,6 +12,11 @@ export interface Action {
   status: Status;
 }
 
+export interface ActionWithContext {
+  action: Action;
+  goal: Goal;
+}
+
 export type ActionParent = Goal;
 
 export const dymamicDate = (

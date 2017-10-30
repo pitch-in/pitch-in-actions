@@ -5,6 +5,8 @@ import { Observable } from 'rxjs/Observable';
 
 import 'rxjs/add/observable/of';
 
+import { ActionWithContext } from './action.model';
+
 import { ActionRepo } from 'app/repos/action.repo';
 import { Action } from 'app/action/action.model';
 import { always } from 'ramda';
@@ -16,6 +18,9 @@ export class ActionService {
   ) {}
 
   index = (): Observable<Action[]> => Observable.of(this.actionRepo.index());
+
+  toDoList = (): Observable<ActionWithContext[]> =>
+    Observable.of(this.actionRepo.toDoList());
 
   add = (goalId: string): Observable<Action> =>
     Observable.of(this.actionRepo.post(goalId));

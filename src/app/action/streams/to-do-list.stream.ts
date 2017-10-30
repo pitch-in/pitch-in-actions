@@ -3,15 +3,16 @@ import { Observable } from 'rxjs/Observable';
 
 import { StreamWrapper } from 'app/shared/stream.helpers';
 
-import { Action } from './../action.model';
+import { ActionWithContext } from './../action.model';
 
 import { ActionService } from 'app/action/action.service';
 
 @Injectable()
-export class ToDoListStream implements StreamWrapper<Observable<Action[]>> {
-  $: Observable<Action[]>;
+export class ToDoListStream
+  implements StreamWrapper<Observable<ActionWithContext[]>> {
+  $: Observable<ActionWithContext[]>;
 
   constructor(actionService: ActionService) {
-    this.$ = actionService.index();
+    this.$ = actionService.toDoList();
   }
 }
