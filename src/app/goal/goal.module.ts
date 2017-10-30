@@ -1,3 +1,4 @@
+import { SearchMyGoalsAction } from './streams/search-my-goals.action';
 import { UpdateGoalStream } from './streams/update-goal.stream';
 import { UpdateGoalAction } from './streams/update-goal.action';
 import { NgModule } from '@angular/core';
@@ -36,6 +37,7 @@ import { CloneGoalStream } from './streams/clone-goal.stream';
     ShowGoalComponent
   ],
   providers: [
+    SearchMyGoalsAction,
     GoalsService,
     MyGoalsStream,
     AddGoalStream,

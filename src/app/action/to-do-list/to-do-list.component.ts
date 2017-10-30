@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { SearchToDoListAction } from './../streams/search-to-do-list.action';
+import { Component, OnInit } from '@angular/core';
 
 import { ToDoListStream } from './../streams/to-do-list.stream';
 // import { Action } from '../action.model';
@@ -8,6 +9,13 @@ import { ToDoListStream } from './../streams/to-do-list.stream';
   templateUrl: 'to-do-list.component.html',
   styleUrls: ['to-do-list.component.scss']
 })
-export class ToDoListComponent {
-  constructor(public toDoListStream: ToDoListStream) {}
+export class ToDoListComponent implements OnInit {
+  constructor(
+    public toDoListStream: ToDoListStream,
+    private searchToDoListAction: SearchToDoListAction
+  ) {}
+
+  ngOnInit() {
+    setTimeout(() => this.searchToDoListAction.$.next());
+  }
 }

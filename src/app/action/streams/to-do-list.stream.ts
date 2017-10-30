@@ -1,3 +1,4 @@
+import { SearchToDoListAction } from './search-to-do-list.action';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -12,7 +13,10 @@ export class ToDoListStream
   implements StreamWrapper<Observable<ActionWithContext[]>> {
   $: Observable<ActionWithContext[]>;
 
-  constructor(actionService: ActionService) {
-    this.$ = actionService.toDoList();
+  constructor(
+    searchToDoListAction: SearchToDoListAction,
+    actionService: ActionService
+  ) {
+    this.$ = searchToDoListAction.$.flatMap(actionService.toDoList);
   }
 }

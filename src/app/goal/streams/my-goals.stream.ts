@@ -1,3 +1,4 @@
+import { SearchMyGoalsAction } from './search-my-goals.action';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -20,15 +21,15 @@ export class MyGoalsStream implements StreamWrapper<Observable<Goal[]>> {
   $: Observable<Goal[]>;
 
   constructor(
+    searchMyGoalsAction: SearchMyGoalsAction,
     goalsService: GoalsService,
     updateGoalStream: UpdateGoalStream,
     updateActionStream: UpdateActionStream
   ) {
-    const refetchOnUpdate$ = Observable.merge(
+    this.$ = Observable.merge(
+      searchMyGoalsAction.$,
       updateGoalStream.$,
       updateActionStream.$
     ).flatMap(goalsService.myGoals);
-
-    this.$ = goalsService.myGoals().concat(refetchOnUpdate$);
   }
 }
