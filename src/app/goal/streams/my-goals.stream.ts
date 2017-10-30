@@ -1,3 +1,4 @@
+import { UpdateGoalStream } from './update-goal.stream';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/Observable';
 
@@ -11,8 +12,6 @@ import { StreamWrapper } from 'app/shared/stream.helpers';
 import { Goal } from '../goal.model';
 
 import { GoalsService } from './../goals.service';
-import { AddGoalStream } from './add-goal.stream';
-import { CloneGoalStream } from './clone-goal.stream';
 import { UpdateActionStream } from 'app/action/streams/update-action.stream';
 
 @Injectable()
@@ -21,13 +20,11 @@ export class MyGoalsStream implements StreamWrapper<Observable<Goal[]>> {
 
   constructor(
     goalsService: GoalsService,
-    addGoalStream: AddGoalStream,
-    cloneGoalStream: CloneGoalStream,
+    updateGoalStream: UpdateGoalStream,
     updateActionStream: UpdateActionStream
   ) {
     const refetchOnUpdate$ = Observable.merge(
-      cloneGoalStream.$.flatMap(goalsService.cloneGoal),
-      addGoalStream.$.flatMap(goalsService.addGoal),
+      updateGoalStream.$,
       updateActionStream.$
     ).flatMap(goalsService.myGoals);
 

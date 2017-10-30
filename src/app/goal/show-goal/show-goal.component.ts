@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 
 import { Goal } from '../goal.model';
 
@@ -9,6 +9,16 @@ import { Goal } from '../goal.model';
 })
 export class ShowGoalComponent {
   @Input() goal: Goal;
+  @Output() edit = new EventEmitter();
+  expanded: boolean;
 
   constructor() {}
+
+  toggleExpansion(): void {
+    this.expanded = !this.expanded;
+  }
+
+  get expandButtonClass(): string {
+    return this.expanded ? 'expand-button--expanded' : 'expand-button--closed';
+  }
 }

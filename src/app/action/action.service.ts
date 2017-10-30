@@ -7,6 +7,7 @@ import 'rxjs/add/observable/of';
 
 import { ActionRepo } from 'app/repos/action.repo';
 import { Action } from 'app/action/action.model';
+import { always } from 'ramda';
 
 @Injectable()
 export class ActionService {
@@ -16,15 +17,14 @@ export class ActionService {
 
   index = (): Observable<Action[]> => Observable.of(this.actionRepo.index());
 
-  add(goalId: string): Observable<Action> {
-    return Observable.of(this.actionRepo.post(goalId));
-  }
+  add = (goalId: string): Observable<Action> =>
+    Observable.of(this.actionRepo.post(goalId));
 
-  remove(goalId: string, actionId: string): Observable<void> {
-    return Observable.of(this.actionRepo.delete(goalId, actionId));
-  }
+  remove = (goalId: string, action: Action): Observable<Action> =>
+    Observable.of(this.actionRepo.delete(goalId, action.id)).map(
+      always(action)
+    );
 
-  update(goalId: string, action: Action): Observable<Action> {
-    return Observable.of(this.actionRepo.put(goalId, action));
-  }
+  update = (goalId: string, action: Action): Observable<Action> =>
+    Observable.of(this.actionRepo.put(goalId, action));
 }

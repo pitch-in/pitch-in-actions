@@ -1,3 +1,5 @@
+import { UpdateGoalStream } from './streams/update-goal.stream';
+import { UpdateGoalAction } from './streams/update-goal.action';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
@@ -33,6 +35,13 @@ import { CloneGoalStream } from './streams/clone-goal.stream';
     EditGoalComponent,
     ShowGoalComponent
   ],
-  providers: [GoalsService, MyGoalsStream, AddGoalStream, CloneGoalStream]
+  providers: [
+    GoalsService,
+    MyGoalsStream,
+    AddGoalStream,
+    CloneGoalStream,
+    UpdateGoalAction,
+    UpdateGoalStream
+  ]
 })
 export class GoalModule {}

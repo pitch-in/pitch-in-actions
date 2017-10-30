@@ -1,3 +1,5 @@
+import { AddActionAction } from './streams/add-action.action';
+import { RemoveActionAction } from './streams/remove-action.action';
 import { UpdateActionStream } from './streams/update-action.stream';
 import { UpdateActionAction } from './streams/update-action.action';
 import { NgModule } from '@angular/core';
@@ -22,6 +24,12 @@ import { ActionService } from './action.service';
     EditActionComponent,
     ShowActionComponent
   ],
-  providers: [ActionService, UpdateActionAction, UpdateActionStream]
+  providers: [
+    ActionService,
+    UpdateActionAction,
+    AddActionAction,
+    RemoveActionAction,
+    UpdateActionStream
+  ]
 })
 export class ActionModule {}

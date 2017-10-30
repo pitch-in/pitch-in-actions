@@ -6,7 +6,8 @@ import { AddGoalStream } from '../streams/add-goal.stream';
 
 @Component({
   selector: 'pi-my-goals',
-  templateUrl: 'my-goals.component.html'
+  templateUrl: 'my-goals.component.html',
+  styleUrls: ['my-goals.component.scss']
 })
 export class MyGoalsComponent {
   constructor(

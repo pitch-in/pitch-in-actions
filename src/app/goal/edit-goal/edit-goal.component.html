@@ -1,16 +1,22 @@
 <form class="goal" [formGroup]="form">
-  <input formControlName="name" class="name" placeholder="Name" />
-  <button type="button" (click)="cloneGoal()">+ Clone Goal</button>
-  <label>
-    Deadline
-    <input formControlName="deadline" />
-  </label>
-  <input formControlName="status" />
 
-  <div class="action" *ngFor="let action of goal.actions">
-    <button type="button" (click)="removeAction(action)">X</button>
-    <pi-action [action]="action" [parent]="goal"></pi-action>
+  <label class="label-row">
+    <span>I want to have</span>
+    <input formControlName="name" class="input--inline" />
+  </label>
+
+  <label class="label-row">
+    <span>finished by</span>
+    <input type="date" formControlName="deadline" class="input--inline" placeholder="date" />
+  </label>
+
+  <div>
+    <button type="button" class="button--primary" (click)="update.emit(goal)">Save</button>
   </div>
 
-  <button type="button" (click)="addAction()">+ Add Action</button>
+  <!-- Actions -->
+
+  <div class="action" *ngFor="let action of goal.actions">
+    <pi-action [action]="action" [parent]="goal"></pi-action>
+  </div>
 </form>
