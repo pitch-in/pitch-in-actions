@@ -5,7 +5,7 @@ import * as moment from 'moment';
 
 import { buildForm } from 'app/shared/form.helpers';
 
-import { Action, dymamicDate } from '../action.model';
+import { Action, dynamicDate } from '../action.model';
 import { Goal } from 'app/goal/goal.model';
 import { actionSchema } from './edit-action.component.model';
 
@@ -35,10 +35,10 @@ export class EditActionComponent {
   }
 
   get startByDate(): moment.Moment {
-    return dymamicDate(this.parent, this.action.startDaysBefore);
+    return dynamicDate(this.parent, this.action.startDaysBefore);
   }
 
   get finishByDate(): moment.Moment {
-    return dymamicDate(this.parent, this.action.finishDaysBefore);
+    return dynamicDate(this.parent, this.action.finishDaysBefore);
   }
 }

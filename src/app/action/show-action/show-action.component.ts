@@ -2,7 +2,7 @@ import { Component, Input, EventEmitter, Output } from '@angular/core';
 
 import * as moment from 'moment';
 
-import { ActionParent, Action, dymamicDate } from '../action.model';
+import { ActionParent, Action, dynamicDate } from '../action.model';
 
 type InputActionParent = ActionParent;
 type InputAction = Action;
@@ -31,6 +31,6 @@ export class ShowActionComponent {
   }
 
   get finishByDate(): moment.Moment {
-    return dymamicDate(this.parent, this.action.finishDaysBefore);
+    return dynamicDate(this.parent, this.action.finishDaysBefore);
   }
 }

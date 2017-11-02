@@ -19,7 +19,7 @@ export interface ActionWithContext {
 
 export type ActionParent = Goal;
 
-export const dymamicDate = (
+export const dynamicDate = (
   parent: { deadline: string },
   daysBefore: number
 ): moment.Moment => {
