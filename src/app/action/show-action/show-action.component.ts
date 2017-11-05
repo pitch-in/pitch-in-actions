@@ -4,17 +4,14 @@ import * as moment from 'moment';
 
 import { ActionParent, Action, dynamicDate } from '../action.model';
 
-type InputActionParent = ActionParent;
-type InputAction = Action;
-
 @Component({
   selector: 'pi-show-action',
   templateUrl: 'show-action.component.html',
   styleUrls: ['show-action.component.scss']
 })
 export class ShowActionComponent {
-  @Input() parent: InputActionParent;
-  @Input() action: InputAction;
+  @Input() parent: ActionParent;
+  @Input() action: Action;
   @Output() remove = new EventEmitter();
   @Output() edit = new EventEmitter();
   @Output() finish = new EventEmitter();
