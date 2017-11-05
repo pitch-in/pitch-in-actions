@@ -21,7 +21,7 @@ import { UpdateActionStream } from './streams/update-action.stream';
 
 @NgModule({
   imports: [FormsModule, BrowserModule, ReactiveFormsModule, ReposModule],
-  exports: [ToDoListComponent, ActionComponent],
+  exports: [ToDoListComponent, ActionComponent, EditActionComponent],
   declarations: [
     ToDoListComponent,
     ActionComponent,

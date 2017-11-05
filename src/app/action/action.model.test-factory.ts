@@ -6,12 +6,12 @@ import { Action } from 'app/action/action.model';
 
 let id = 1;
 
-function nextId(): string {
+export function nextActionId(): string {
   return toString(id++);
 }
 
 export const actionFactory = Factory.makeFactory<Action>({
-  id: Factory.each(nextId),
+  id: Factory.each(nextActionId),
   name: 'Do a small task',
   notes: '',
   startDaysBefore: 2,
@@ -20,7 +20,7 @@ export const actionFactory = Factory.makeFactory<Action>({
 });
 
 export const emptyActionFactory = Factory.makeFactory<Action>({
-  id: Factory.each(nextId),
+  id: Factory.each(nextActionId),
   name: '',
   notes: '',
   startDaysBefore: 0,

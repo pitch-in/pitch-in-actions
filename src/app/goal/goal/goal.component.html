@@ -2,4 +2,6 @@
 
 <pi-show-goal *ngIf="!editing" [goal]="goal" (edit)="editing = true" (clone)="cloneGoal()"></pi-show-goal>
 
-<button type="button" class="add-action" (click)="addAction()">+ Add Action Item</button>
+<pi-edit-action *ngIf="showNewAction" [parent]="goal" [action]="newAction" (update)="addAction($event)" (close)="showNewAction = false"></pi-edit-action>
+
+<button type="button" class="add-action" (click)="openNewAction()">+ Add Action Item</button>

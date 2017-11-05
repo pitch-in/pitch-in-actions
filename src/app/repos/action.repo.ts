@@ -3,7 +3,7 @@ import { Injectable } from '@angular/core';
 import { Goal } from 'app/goal/goal.model';
 import { Action, ActionWithContext } from 'app/action/action.model';
 
-import { emptyActionFactory } from 'app/action/action.model.test-factory';
+import { nextActionId } from 'app/action/action.model.test-factory';
 
 import {
   assoc,
@@ -30,13 +30,14 @@ export class ActionRepo {
     return toDoList(this.goalRepo.index());
   }
 
-  post(goalId: string): Action {
+  post(goalId: string, action: Action): Action {
     let goal = this.goalRepo.get(goalId);
     let actions = goal.actions;
 
-    const action = emptyActionFactory.build();
+    const actionId = nextActionId();
+    const actionWithId = { ...action, id: actionId };
 
-    actions = concat(actions, [action]);
+    actions = concat(actions, [actionWithId]);
 
     goal = assoc('actions', actions, goal);
     this.goalRepo.put(goal);

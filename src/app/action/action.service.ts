@@ -22,8 +22,8 @@ export class ActionService {
   toDoList = (): Observable<ActionWithContext[]> =>
     Observable.of(this.actionRepo.toDoList());
 
-  add = (goalId: string): Observable<Action> =>
-    Observable.of(this.actionRepo.post(goalId));
+  add = (goalId: string, action: Action): Observable<Action> =>
+    Observable.of(this.actionRepo.post(goalId, action));
 
   remove = (action: Action): Observable<Action> =>
     Observable.of(this.actionRepo.delete(action)).map(always(action));

@@ -1,3 +1,4 @@
+import { Action, emptyAction } from 'app/action/action.model';
 import { Component, Input } from '@angular/core';
 
 import { AddActionAction } from 'app/action/streams/add-action.action';
@@ -14,16 +15,14 @@ import { Goal } from '../goal.model';
 export class GoalComponent {
   @Input() goal: Goal;
   @Input() editing: boolean;
+  showNewAction: boolean;
+  newAction: Action = emptyAction;
 
   constructor(
     private addActionAction: AddActionAction,
     private cloneGoalStream: CloneGoalStream,
     private updateGoalAction: UpdateGoalAction
   ) {}
-
-  addAction() {
-    this.addActionAction.$.next(this.goal.id);
-  }
 
   updateGoal(goal: Goal) {
     this.updateGoalAction.$.next(goal);
@@ -33,5 +32,13 @@ export class GoalComponent {
 
   cloneGoal() {
     this.cloneGoalStream.$.next(this.goal.id);
+  }
+
+  addAction(action: Action) {
+    this.addActionAction.$.next([this.goal.id, action]);
+  }
+
+  openNewAction() {
+    this.showNewAction = true;
   }
 }

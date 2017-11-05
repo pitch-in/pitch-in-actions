@@ -29,3 +29,12 @@ export const dynamicDate = (
 
   return momentDeadline.subtract(daysBefore, 'days');
 };
+
+export const emptyAction: Action = {
+  id: '',
+  name: '',
+  notes: '',
+  startDaysBefore: 0,
+  finishDaysBefore: 0,
+  status: 'not-started'
+};

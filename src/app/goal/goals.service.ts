@@ -19,7 +19,8 @@ export class GoalsService {
   getGoal = (id: string): Observable<Goal> =>
     Observable.of(this.goalsRepo.get(id));
 
-  addGoal = (): Observable<Goal> => Observable.of(this.goalsRepo.post());
+  addGoal = (goal: Goal): Observable<Goal> =>
+    Observable.of(this.goalsRepo.post(goal));
 
   cloneGoal = (id: string): Observable<Goal> =>
     Observable.of(this.goalsRepo.clone(id));

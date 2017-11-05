@@ -10,3 +10,12 @@ export interface Goal {
   status: Status;
   actions: Action[];
 }
+
+export const emptyGoal: Goal = {
+  id: '',
+  name: '',
+  notes: '',
+  deadline: '',
+  status: 'not-started',
+  actions: []
+};

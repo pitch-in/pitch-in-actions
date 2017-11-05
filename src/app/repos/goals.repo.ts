@@ -2,10 +2,7 @@ import { Injectable } from '@angular/core';
 
 import { Goal } from 'app/goal/goal.model';
 
-import {
-  goalFactory,
-  emptyGoalFactory
-} from 'app/goal/goal.model.test-factory';
+import { goalFactory, nextGoalId } from 'app/goal/goal.model.test-factory';
 
 import {
   assoc,
@@ -49,9 +46,10 @@ export class GoalsRepo {
     return findByActionId(id, this.goals);
   }
 
-  post(): Goal {
-    const goal = emptyGoalFactory.build();
-    this.goals = assoc(goal.id, goal, this.goals);
+  post(goal: Goal): Goal {
+    const goalId = nextGoalId();
+
+    this.goals = assoc(goalId, { ...goal, id: goalId }, this.goals);
 
     return goal;
   }

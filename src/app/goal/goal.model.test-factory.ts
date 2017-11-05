@@ -8,12 +8,12 @@ import { actionFactory } from 'app/action/action.model.test-factory';
 
 let id = 1;
 
-function nextId(): string {
+export function nextGoalId(): string {
   return toString(id++);
 }
 
 export const goalFactory = Factory.makeFactory<Goal>({
-  id: Factory.each(nextId),
+  id: Factory.each(nextGoalId),
   name: 'Do a thing',
   notes: '',
   deadline: '2017-10-31',
@@ -22,7 +22,7 @@ export const goalFactory = Factory.makeFactory<Goal>({
 });
 
 export const emptyGoalFactory = Factory.makeFactory<Goal>({
-  id: Factory.each(nextId),
+  id: Factory.each(nextGoalId),
   name: '',
   notes: '',
   deadline: '',

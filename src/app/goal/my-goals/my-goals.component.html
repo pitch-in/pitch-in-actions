@@ -3,7 +3,9 @@
 <div>
   <pi-goal class="goal" *ngFor="let goal of (myGoalsStream.$ | async)" [goal]="goal"></pi-goal>
 
-  <button type="button" (click)="addGoal()">
+  <pi-edit-goal [goal]="newGoal" (update)="addGoal($event)" *ngIf="showNewGoal"></pi-edit-goal>
+
+  <button type="button" (click)="openNewGoal()">
     + Add Goal
   </button>
 </div>
