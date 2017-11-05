@@ -1,1 +1,14 @@
+@font-face {
+  font-family: 'Phosphate';
+  src: url('/fonts/Phosphate-Solid.ttf');
+  font-weight: bold;
+}
 
+@font-face {
+  font-family: 'Phosphate-Inline';
+  src: url('/fonts/Phosphate-Inline.ttf');
+  font-weight: bold;
+}
+
+$body-font: Phosphate, sans-serif;
+$header-font: 'Open Sans', sans-serif;

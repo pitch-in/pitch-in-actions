@@ -4,5 +4,6 @@
 @mixin button($background, $color: $white) {
   background: $background;
   color: $color;
-  padding: 5px;
+  padding: 10px;
+  width: 28px;
 }
