@@ -1,9 +1,9 @@
 @font-face {
   font-family: 'icomoon';
-  src: url('/assets/fonts/icon-font/icomoon.eot?3bzps');
-  src: url('/assets/fonts/icon-font/icomoon.eot?3bzps#iefix')
+  src: url('/assets/fonts/icon-font/icomoon.eot');
+  src: url('/assets/fonts/icon-font/icomoon.eot?#iefix')
       format('embedded-opentype'),
-    url('/assets/fonts/icon-font/icomoon.ttf?3bzps') format('truetype'),
+    url('/assets/fonts/icon-font/icomoon.ttf') format('truetype'),
     url('/assets/fonts/icon-font/icomoon.woff') format('woff'),
     url('/fonts/icomoon.svg?3bzps#icomoon') format('svg');
   font-weight: normal;
@@ -33,7 +33,9 @@
     content: $content;
   }
 }
-
+@mixin icon-logo {
+  @include icon('\e902');
+}
 @mixin icon-bell {
   @include icon('\e900');
 }

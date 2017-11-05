@@ -1,5 +1,8 @@
 @import 'mixins/icons';
 
+.icon-logo {
+  @include icon-logo;
+}
 .icon-bell {
   @include icon-bell;
 }
