@@ -1,5 +1,5 @@
 @import 'variables/colors';
-@import 'mixins/expansion-button';
+@import 'mixins/icons';
 
 .main-row {
   display: flex;
@@ -12,27 +12,33 @@
 }
 
 .expand-button--expanded {
-  @include expansion-button('^', $black, $white);
+  color: $black;
+  @include icon-chevron-up;
 }
 
 .expand-button--closed {
-  @include expansion-button('V', $black, $white);
+  color: $black;
+  @include icon-chevron-down;
 }
 
 .edit-button {
-  @include expansion-button('i', $blue, $white);
+  @include icon-edit;
+  color: $blue;
 }
 
 .clone-button {
-  @include expansion-button('C', $black, $white);
+  @include icon-copy;
+  color: $black;
 }
 
 .finish-button {
-  @include expansion-button('Y', $green, $white);
+  @include icon-check;
+  color: $green;
 }
 
 .remove-button {
-  @include expansion-button('X', $red, $white);
+  @include icon-trash;
+  color: $red;
 }
 
 .commands {
