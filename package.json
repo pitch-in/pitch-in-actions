@@ -15,7 +15,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "prettier": "prettier --single-quote --write 'src/**/*.ts'",
-    "fix": "tslint --fix 'src/**/*.ts' && npm run prettier",
+    "tslint": "tslint --fix -p .",
+    "fix": "npm run tslint && npm run prettier",
     "postinstall": "ng build --aot"
   },
   "private": true,
@@ -60,7 +61,7 @@
     "prettier": "^1.7.4",
     "protractor": "~5.1.2",
     "ts-node": "~3.2.0",
-    "tslint": "~5.3.2",
+    "tslint": "~5.8.0",
     "tslint-config-airbnb": "^5.3.0",
     "tslint-config-prettier": "^1.5.0"
   }

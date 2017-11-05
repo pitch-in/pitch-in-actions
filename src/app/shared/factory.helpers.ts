@@ -2,6 +2,8 @@
  * Add this temporarily, ts doesn't like importing .ts
  */
 
+/* tslint:disable */
+
 export type FactoryFunc<T> = (item: Partial<T>) => T;
 
 export class Generator<T> {
@@ -187,7 +189,7 @@ function buildBase<T>(seqNum: number, builder: Builder<T>): BaseBuild<T> {
     }
     t[key] = value;
   }
-  return { value: t as T, derived };
+  return { derived, value: t as T };
 }
 
 export function makeFactory<T>(builder: Builder<T>): Factory<T> {

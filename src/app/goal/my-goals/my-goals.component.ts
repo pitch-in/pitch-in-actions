@@ -1,5 +1,4 @@
-import { emptyGoal } from './../goal.model';
-import { Goal } from 'app/goal/goal.model';
+import { Goal, emptyGoal } from 'app/goal/goal.model';
 import { SearchMyGoalsAction } from './../streams/search-my-goals.action';
 import { Component, OnInit } from '@angular/core';
 
@@ -26,7 +25,7 @@ export class MyGoalsComponent implements OnInit {
     setTimeout(() => this.searchMyGoalsAction.$.next());
   }
 
-  openNewGoal(goal: Goal) {
+  openNewGoal() {
     this.showNewGoal = true;
   }
 

@@ -25,6 +25,8 @@
         "singleline": "never"
       }
     ],
-    "prefer-function-over-method": [true, "allow-public", "allow-protected"]
+    "prefer-function-over-method": [true, "allow-public", "allow-protected"],
+    "no-increment-decrement": false,
+    "strict-boolean-expressions": false
   }
 }
